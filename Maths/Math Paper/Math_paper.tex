@@ -1,0 +1,314 @@
+\documentclass{amsart}
+
+%     If your article includes graphics, uncomment this command.
+%\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+\newtheorem{corollary}{Corollary}[theorem]
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+%    Blank box placeholder for figures (to avoid requiring any
+%    particular graphics capabilities for printing this document).
+\newcommand{\blankbox}[2]{%
+  \parbox{\columnwidth}{\centering
+%    Set fboxsep to 0 so that the actual size of the box will match the
+%    given measurements more closely.
+    \setlength{\fboxsep}{0pt}%
+    \fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
+  }%
+}
+
+\begin{document}
+
+\title{Series of a function using Integration by parts}
+
+%    Information for first author
+\author{Divyang R. Prajapati}
+%    Address of record for the research reported here
+\address{Department of Physics, St. Xavier's college (Autonomous),  Ahmedabad, India.}
+%    Current address
+%\curraddr{Department of Mathematics and Statistics,Case Western Reserve University, Cleveland, Ohio 43403}
+\email{divyangprajapati72@gmail.com}
+%    \thanks will become a 1st page footnote.
+%\thanks{The first author was supported in part by NSF Grant \#000000.}
+
+%    Information for second author
+\author{ Prashantkumar Patel}
+\address{Department of  Mathematics, St. Xavier's college (Autonomous), Ahmedabad, India.}
+\email{prashant225@gmail.com}
+%\thanks{Support information for the second author.}
+
+\author{ Udayan Prajapati}
+\address{Department of  Mathematics, St. Xavier's college (Autonomous), Ahmedabad, India.}
+\email{udayan64@yahoo.com }
+
+
+\date{\today }
+
+\keywords{Integration by parts, Differentiation }
+
+%\subjclass[2000]{Primary 54C40, 14E20; Secondary 46E25, 20C20}
+
+\begin{abstract}
+It is well known that some integrations can be found by ``integration by parts" applying certain working rules. But what if the sequence in applying these working rules is not followed? Can some interesting results be derived by altering this? The present paper discusses the same. The paper is organized as follows: The first section includes the basic introduction to different series and the theorems on newly developed series. In the second section, series expressions of some well-known functions are discussed. Lastly, an interesting formula involving $\pi$ is derived.
+\end{abstract}
+
+\maketitle
+
+
+\section*{Introduction}
+The infinite and convergent series is very useful tool to analyze a function. To approximate the class of functions, one can use Taylor series and Fourier series. Using integration by parts, expression \eqref{eq1} is derived. The present paper is based on this expression.
+
+
+\section{Some Theorems}
+In this section, the development of series is done using integration by parts for integrable function. Throughout the paper $g^{(r)}$ denotes the $r^{th}$ derivative of the real-valued function $g$.
+
+
+\begin{theorem}
+ Let $g:\mathbb{R}\longrightarrow\mathbb{R}$ be $(n+1)$ times continuously differentiable function. Then
+   \begin{equation}
+g(x) = g(0) + \sum_{r=1}^n (-1)^{r-1} \frac{x^r}{r!} \cdot g^{(r)}(x) + R_{n+1}(x);~~~~~~x\in \mathbb{R},
+\end{equation}\label{eq1}
+where $\displaystyle{ R_{n+1}(x) =(-1)^n \int_0^x g^{(n+1)}(t) \cdot \frac{t^n}{n!} \, dt}$.
+\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{proof}
+Let $g:\mathbb{R}\longrightarrow\mathbb{R}$ be a continuous and $(n+1)$ times differentiable function. Consider $\displaystyle{\int_0^x g^{(1)}(t) \, dt}$ and expand this integral using integration by parts,
+\begin{eqnarray*}
+\int_0^x g^{(1)}(t) \, dt &=& \left. g^{(1)}(t) \cdot \frac{t^1}{1!} \right|_0^x - \int_0^x g^{(2)}(t) \cdot \frac{t^1}{1!} \,dt \\
+g(x) - g(0)&=&g^{(1)}(x) \cdot \frac{x^1}{1!} + R_2(x),
+\end{eqnarray*}
+where $\displaystyle{ R_2(x)=- \int_0^x g^{(2)}(t) \cdot \frac{t^1}{1!} \,dt}$, which can be also written as \\
+$\displaystyle{ R_{1+1}(x)=(-1)^1 \int_0^x g^{(1+1)}(t) \cdot \frac{t^1}{1!} \,dt}$. Further,
+\begin{eqnarray*}
+g(x) - g(0) &=& g^{(1)}(x) \cdot \frac{x^1}{1!} - \int_0^x g^{(2)}(t) \cdot \frac{t^1}{1!} \, dt \\
+&=&\frac{x^1}{1!} \cdot g^{(1)}(x) - \frac{x^2}{2!} \cdot g^{(2)}(x) + R_3(x),
+\end{eqnarray*}
+where $\displaystyle{R_3(x) = \int_0^x g^{(3)}(t) \cdot \frac{t^2}{2!} \, dt}$, which can be also written as\\
+ $\displaystyle{R_{2+1}(x) = (-1)^2 \int_0^x g^{(2+1)}(t) \cdot \frac{t^2}{2!} \, dt}$.\\
+ Repeat this process $n$ times, we obtain
+\begin{eqnarray*}
+g(x) - g(0) &=&\frac{x^1}{1!} \cdot g^{(1)}(x) - \frac{x^2}{2!} \cdot g^{(2)}(x) + \frac{x^3}{3!} \cdot g^{(3)}(x) - \cdots\\
+&~& + (-1)^{n-1} \frac{x^n}{n!} \cdot g^{(n)}(x) + R_{n+1}(x).
+\end{eqnarray*}
+ By rewriting above expression the desired result is achieved.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}
+Suppose $g:\mathbb{R}\longrightarrow\mathbb{R}$ is $(n+1)$ times continuously differentiable function. Let $``a"$ be a fixed real number. Also, consider the term\\
+$\displaystyle{ R_{k+1}(x) = (-1)^k \int_a^x \frac{(t-a)^k}{k!} \cdot g^{(k+1)}(t) \, dt}$. Then
+\begin{equation*}
+g(x) = g(a)+\sum_{r=1}^n (-1)^{r-1} \frac{(x-a)^r}{r!} \cdot g^{(r)}(x)+R_{n+1}(x),~~~~~~~~~ x \in \mathbb{R}.
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+From the assumption, it is clear that\\
+ $\displaystyle{ R_k(x)=(-1)^{(k-1)} \int_a^x \frac{(t-a)^{k-1}}{(k-1)!} \cdot g^{(k)}(t) \, dt }$.\\
+Now, apply integration by parts
+\begin{eqnarray*}
+R_k(x) &=& (-1)^{k-1} \left[\left. \frac{(t-a)^k}{k!} \cdot g^{(k)}(t)\right|_a^x - \int_a^x \frac{(t-a)^k}{k!} \cdot g^{(k+1)}(t) \, dt \right]\\
+&=& (-1)^{k-1} \frac{(x-a)^k}{k!} \cdot g^{(k)}(x) + R_{k+1}(x).
+\end{eqnarray*}
+Therefore,
+\begin{equation*}
+R_k(x)-R_{k+1}(x)=(-1)^{k-1} \frac{(x-a)^k}{k!} \cdot g^{(k)}(x).
+\end{equation*}
+Now, put $k=1,2, \cdots ,n$ in above equation and add them,
+\begin{eqnarray*}
+R_1(x) &=& \sum_{r=1}^n (-1)^{r-1} \frac{(x-a)^r}{r!} \cdot g^{(r)}(x)+R_{n+1}(x).
+\end{eqnarray*}
+Put $k=0$ in the expression of $R_{k+1}(x)$, then $\displaystyle{R_1(x)= \int_a^x g^{(1)}(t) \, dt = g(x) - g(a)}$.
+\begin{equation}
+g(x) = g(a)+\sum_{r=1}^n (-1)^{r-1} \frac{(x-a)^r}{r!} \cdot g^{(r)}(x)+R_{n+1}(x).\label{TC1}
+\end{equation}
+By putting $a = 0$ in the expression \eqref{TC1}, it reduces to an expression \eqref{eq1}. So, the expression \eqref{TC1} is the generalized version of expression \eqref{eq1}.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}
+The series of $g(x)$ given in formula \eqref{eq1} converges to $g(x)$ if and only if $R_n(x) \rightarrow 0$ as $n \rightarrow \infty$.
+\end{theorem}
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{proof}
+Equation \eqref{eq1} can be written as
+\begin{equation}
+g(x)=S_n(x) + R_n(x),\label{Tlst1}
+\end{equation}
+where $R_n(x)$ is the remainder after $n$ term described in equation \eqref{eq1} and
+\begin{equation}
+S_n(x) = g(0) + \sum_{r=1}^{n-1} (-1)^{(r-1)} \frac{x^r}{r!} g^{(r)}(x). \label{TlstSn}
+\end{equation}
+The right hand side of equation \eqref{Tlst1} converges to $g(x)$, then $S_n(x) \rightarrow g(x)$ as $n \rightarrow \infty$.\\
+This implies and is implied by $\displaystyle{ \lim \limits_{n \rightarrow\infty} R_n(x)=0}$, when $\displaystyle S_n(x)=g(x)-R_n(x).$
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Some Examples}
+In this section, the series expressions of some well-known functions are discussed using theorems $1.1$ and $1.3$.
+
+\begin{example}
+Consider $g(x)=\sin x$. The $r^{th}$ derivative of $\sin x$ can be expressed as,
+\begin{equation*}
+  g^{(r)}(x)=\sin \left( x + \frac{r\pi}{2} \right) ,~~~~~~~~~~~ r\in \mathbb{N}.
+\end{equation*}
+Now, substitute the above values of $g^{(r)}(x), r\in \mathbb{N} $ in equation \eqref{TlstSn},\\
+ $\displaystyle{ S_{n+1}(x)=\sum_{r=1}^n (-1)^{(r-1)} \frac{x^r}{r!} \cdot \sin \left(x+\frac{r\pi}{2} \right)}$
+ and from equation of remainder term as described in expression \eqref{eq1},
+ $\displaystyle{ R_{n+1}(x)=(-1)^n \int_0^x \frac{t^n}{n!} \cdot \frac{d^{n+1}}{dt^{n+1}} \sin t \, dt}.$\\
+Now, the remainder term can be evaluated as
+\begin{eqnarray*}
+|R_{n+1}(x)| &\leq& \frac{1}{n!} \int_0^x \left|t^n\right| \cdot \left| \sin \left( \frac{(n+1)\pi}{2}+t \right) \right| \, dt\\
+&\leq& \frac{1}{n!} \int_0^x \left|t^n\right| \, dt = \left. \frac{1}{n!} \cdot \frac{|t|^{n+1}}{(n+1)} \right|_0^x = \frac{|x|^{n+1}}{(n+1)!}\to 0 \textrm { as } n\to \infty.
+\end{eqnarray*}
+
+\noindent From the theorems $1.1$ and $1.3$, $\sin x$ can be represented in series form as
+\begin{eqnarray*}
+\sin x &=& \sum_{r=1}^{\infty} (-1)^{r-1} \frac{x^r}{r!} \cdot \sin \left(x+\frac{r \pi}{2}\right)
+\end{eqnarray*}
+because $R_{n+1}(x) \rightarrow 0$ whenever $n \rightarrow \infty$.\\
+On separating the terms of $\sin x$ and $\cos x$ in the right hand side of the above equation, we get
+
+\begin{eqnarray*}
+\sin x &=& \sum_{r=0}^\infty \left(\frac{x^{4r+1}}{(4r+1)!}-\frac{x^{4r+3}}{(4r+3)!}\right)\cos x + \sum_{r=0}^\infty \left(\frac{x^{4r+2}}{(4r+2)!}-\frac{x^{4r+4}}{(4r+4)!}\right)\sin x.
+\end{eqnarray*}
+If we divide both the sides of above equation by $\sin x$, we get
+\begin{eqnarray*}
+\cot x = \dfrac{1- \displaystyle\sum_{r=0}^{\infty} \left(\frac{x^{4r+2}}{(4r+2)!}-\frac{x^{4r+4}}{(4r+4)!}\right)}{\displaystyle\sum_{r=0}^\infty \left(\frac{x^{4r+1}}{(4r+1)!}-\frac{x^{4r+3}}{(4r+3)!}\right)}.
+\end{eqnarray*}
+Suppose that, $\displaystyle{ l_1=\sum_{r=0}^{\infty} \left( \dfrac{x^{4r+1}}{(4r+1)!} - \dfrac{x^{4r+3}}{(4r+3)!} \right)}$ and $\displaystyle{ l_2=\sum_{r=0}^{\infty} \left( \dfrac{x^{4r+2}}{(4r+2)!} - \dfrac{x^{4r+4}}{(4r+4)!} \right)}$. \\
+The other trigonometric functions can be written as follows,\\
+$\displaystyle{ \sin x = \frac{l_1}{\sqrt{l_1^2+(1-l_2)^2}},~~~ \cos x = \frac{1-l_2}{\sqrt{l_1^2+(1-l_2)^2}},~~~ \tan x =\frac{l_1}{1-l_2},} $\\
+$\displaystyle{ \sec x = \frac{\sqrt{l_1^2+(1-l_2)^2}}{1-l_2},~~~ \mathrm{cosec}~ x = \frac{\sqrt{l_1^2+(1-l_2)^2}}{l_1}}$.
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{example}
+Consider $g(x)=a^x$, $a \geq1$. The $r^{th}$ derivative of $a^x$ can be expressed as,
+\begin{equation*}
+  g^{(r)}(x)=a^x \, (\log a)^r ,~~~~~~~ r\in \mathbb{N}.
+\end{equation*}
+Now, substitute the above values of $g^{(r)}(x), r\in \mathbb{N}$ in equation \eqref{TlstSn},\\
+ $\displaystyle{ S_{n+1}(x)=1+\sum_{r=1}^n (-1)^{(r-1)} \frac{x^r}{r!} \cdot a^x \, (\log a)^r}$
+ and from equation of remainder term as described in expression \eqref{eq1},
+$\displaystyle{ R_{n+1}(x)=(-1)^n \int_0^x \frac{t^n}{n!} \cdot \frac{d^{n+1}}{dt^{n+1}} a^t \, dt}$.\\
+Now, the remainder term can be evaluated using identity $|t|^n < |x|^n$, whenever $|t|<|x|$.
+\begin{eqnarray*}
+|R_{n+1}(x)| &\leq & \frac{| \log a|^{n+1}}{n!} \int_0^x |t|^n \cdot |a|^t \, dt \\
+&\leq & \frac{| \log a|^{n+1} \cdot |x|^n}{n!} \int_0^x  |a|^t \, dt = \frac{|\log a|^n}{n!} |x|^n \,(|a|^x-1) \rightarrow 0 \textrm { as } n \rightarrow \infty .
+\end{eqnarray*}
+
+\noindent From the theorems $1.1$ and $1.3$, $a^x$ can be represented in series form as
+\begin{eqnarray}
+a^x=1+\sum_{r=1}^{\infty} (-1)^{r-1} \frac{x^r}{r!}\cdot a^x(\log a)^r \label{Rslt2}
+\end{eqnarray}
+because $R_{n+1}(x) \rightarrow 0$ whenever $n \rightarrow \infty$. Now, take $a=e$ in equation \eqref{Rslt2},
+\begin{eqnarray*}
+e^x &=& 1+\sum_{r=1}^{\infty} (-1)^{r-1} \frac{x^r}{r!}\cdot e^x
+\end{eqnarray*}
+Dividing by $e^x$,
+\begin{eqnarray*}
+e^{-x} &=& \sum_{r=0}^{\infty} (-1)^{r} \frac{x^r}{r!}.
+\end{eqnarray*}
+By putting $(-x)$ instead of $x$ in this expression, $\displaystyle{ e^{x} = \sum_{r=0}^\infty \frac{x^r}{r!}},$ which is the power series of $e^x$.
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{example}
+Consider $g(x)=\log (1+x),0\leq x \leq 1$. The $r^{th}$ derivative of $g(x)$ can be expressed as,
+\begin{equation*}
+  g^{(r)}(x)=\frac{(-1)^{r-1}(r-1)!}{(1+x)^r},~~~~~~~~~~~ r\in \mathbb{N}.
+\end{equation*}
+Now, substitute the above values of $g^{(r)}(x), r\in \mathbb{N}$ in equation \eqref{TlstSn},\\
+$\displaystyle{ S_{n+1}(x)=\sum_{r=1}^n (-1)^{(r-1)} \frac{x^r}{r!} \cdot \frac{(-1)^{r-1}(r-1)!}{(1+x)^r} }$
+ and from equation of remainder term as described in expression \eqref{eq1},
+$\displaystyle{R_{n+1}=(-1)^n \int_0^x \frac{t^n}{n!} \cdot \frac{d^{n+1}}{dt^{n+1}}  \log (1+t)\,dt }$.\\
+Now, the remainder term can be evaluated using identity $|t|^n < |x|^n$, whenever $|t|<|x|$.
+\begin{eqnarray*}
+|R_{n+1}(x)| &\leq & \int_0^x \frac{|t|^n}{|1+t|^{n+1}}\,dt\\
+&\leq & |x|^n \int_0^x |1+t|^{-n-1} \,dt = \frac{|x|^n}{n} \left( 1- \frac{1}{|1+x|^n} \right) \rightarrow 0 \textrm { as } n \rightarrow \infty.
+\end{eqnarray*}
+
+\noindent From the theorems $1.1$ and $1.3$, $\log (1+x)$ can be represented in series form as
+\begin{eqnarray*}
+\log (1+x) &=& \sum_{r=1}^\infty (-1)^{r-1} \frac{x^r}{r!} \cdot \frac{(-1)^{r-1}(r-1)!}{(1+x)^r} ,~~~~~~~~0\leq x \leq 1
+\end{eqnarray*}
+because $R_{n+1}(x) \rightarrow 0$ whenever $n \rightarrow \infty$. Therefore
+\begin{eqnarray*}
+\log (1+x) &=& \sum_{r=1}^\infty \frac{x^r}{r(1+x)^r}.
+\end{eqnarray*}
+
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{remark}
+Consider $\displaystyle{f(x) = \frac{1}{1+x}, 0\leq x \leq1 }$ and if we employ the similar techniques, we get $\displaystyle{ \sum_{r=1}^\infty \frac{x^{r-1}}{(1+x)^r}=1}$, which is the well-known geometric series sum.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Result}
+In this section, the expression of $\pi$ is derived using expression \eqref{TC1}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Result}
+In equation \eqref{TC1} take $g(x)=\tan ^{-1}x $ and $a=1$,
+\begin{eqnarray*}
+\tan ^{-1}x = \tan ^{-1}1 + \sum_{r=1}^{\infty} (-1)^{r-1} \frac{(x-1)^r}{r!} \left(  \frac{d^{r}}{dx^{r}} \tan ^{-1}x \right).
+\end{eqnarray*}
+because $R_{n+1}(x) \rightarrow 0$ whenever $n \rightarrow \infty$.
+The expansion of $\tan ^{-1}x $ is given by
+\begin{eqnarray*}
+\tan ^{-1} x = \sum_{k=1}^{\infty} (-1)^{k} \frac{x^{2k+1}}{2k+1},~~~~~~~ \textrm{where}~~ |x| \leq 1
+\end{eqnarray*}
+and $\tan ^{-1}1 = \frac{\pi}{4}$. So,
+\begin{eqnarray*}
+\frac{\pi}{4} = \tan ^{-1}x - \sum_{r=1}^{\infty} \left[ (-1)^{r-1} \frac{(x-1)^r}{r!} \left( \frac{d^r}{dx^r} \sum_{k=0}^{\infty} (-1)^{k} \frac{x^{2k+1}}{2k+1} \right) \right].
+\end{eqnarray*}
+Now, the $r^{th}$ derivative of $\tan ^{-1} x$ is
+\begin{eqnarray*}
+\frac{d^{r}}{dx^{r}} \left( \sum_{k=0}^{\infty} (-1)^{k} \cdot \frac{x^{2k+1}}{2k+1} \right) = \sum_{k=\ceil{\frac{r-1}{2}}}^{\infty} \left[ \left\{ \prod_{p=1}^{r} ((2k+1)-(p-1)) \right\} \cdot \frac{(-1)^k \cdot x^{(2k+1)-r}}{2k+1} \right].
+\end{eqnarray*}
+So, the value of $\pi$ can be written as
+\begin{eqnarray*}
+\frac{\pi}{4} =  \tan ^{-1} x + \sum_{r=1}^{\infty} \left[ (-1)^r \frac{(x-1)^r}{r!} \left[ \sum_{k=\ceil{\frac{r-1}{2}}}^{\infty} \left( \frac{(-1)^k}{2k+1}  \cdot \left\{ \prod_{p=1}^{r} ((2k+1)-(p-1)) \right\} \cdot x^{(2k+1)-r} \right) \right] \right]
+\end{eqnarray*}
+for all $0<x<1$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{amsplain}
+\begin{thebibliography}{10}
+
+\bibitem {A} Walter Rudin, Principles of Mathematical Analysis, Third edition, McGraw-Hill publication, $1976$.
+
+\bibitem {B} Tom M. Apostol, Calculus, Volume $1$, Second edition, John Wiley $\&$ Sons publication, $1967$.
+
+\bibitem {C} D. Somasundaram and B. Choudhary, A First Course in Mathematical Analysis, cerrected Edition, Narosa publication, 2010.
+
+\bibitem {D} \url{https://en.wikipedia.org/wiki/Leibniz\_integral\_rule}
+
+\end{thebibliography}
+\end{document}
